@@ -17,7 +17,9 @@ public class Item implements ICriteria {
 	private List<String> tagList = new ArrayList<String>();
 
 	/*
-	 * Basically expecting an item to have an either Range or List clause
+	 * Expecting an item to have an either Range or List clause
+	 * Range is for continuous data where List is for discrete
+	 * 
 	 */
 	@Override
 	public String getWhereClause() {
