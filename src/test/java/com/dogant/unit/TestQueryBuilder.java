@@ -50,18 +50,18 @@ public class TestQueryBuilder {
 		Assert.assertEquals(sql, expected);
 
 	}
-	
+
 	@Test
 	public void testEmpty() {
 
 		String json = "";
-	    Request r = new Gson().fromJson(json, Request.class);
+		Request r = new Gson().fromJson(json, Request.class);
 		QueryBuilder query = new QueryBuilder(r);
 
 		String sql = query.getSQL();
 		System.out.println(sql);
 		String expected = "";
-		
+
 		Assert.assertEquals(sql, expected);
 
 	}
