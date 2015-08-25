@@ -2,6 +2,6 @@ package com.dogant.criteria;
 
 public interface ICriteria {
 
-	public String getWhereClause();
+   public String getWhereClause();
 
 }

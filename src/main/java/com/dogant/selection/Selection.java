@@ -5,14 +5,14 @@ import java.util.List;
 
 public class Selection {
 
-	private List<Axis> axes = new ArrayList<Axis>();
+   private List<Axis> axes = new ArrayList<Axis>();
 
-	public List<Axis> getAxes() {
-		return axes;
-	}
+   public List<Axis> getAxes() {
+      return axes;
+   }
 
-	public void setAxes(List<Axis> axes) {
-		this.axes = axes;
-	}
+   public void setAxes(List<Axis> axes) {
+      this.axes = axes;
+   }
 
 }

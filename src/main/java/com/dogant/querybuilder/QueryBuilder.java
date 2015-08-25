@@ -9,63 +9,63 @@ import com.dogant.util.Const;
 
 public class QueryBuilder {
 
-	SelectBuilder sql = new SelectBuilder();
-	Request request = new Request();
+   SelectBuilder sql = new SelectBuilder();
+   Request request = new Request();
 
-	public QueryBuilder(Request request) {
-		this.request = request;
-	}
+   public QueryBuilder(Request request) {
+      this.request = request;
+   }
 
-	@Override
-	public String toString() {
+   @Override
+   public String toString() {
 
-		return sql.toString();
-	}
+      return sql.toString();
+   }
 
-	public String getSQL() {
+   public String getSQL() {
 
-		if (request == null || (!request.hasCriteria() && !request.hasSelection()))
-			return "";
+      if (request == null || (!request.hasCriteria() && !request.hasSelection()))
+         return "";
 
-		return getSelection().getFrom().getCriteria().toString();
-	}
+      return getSelection().getFrom().getCriteria().toString();
+   }
 
-	private QueryBuilder getSelection() {
+   private QueryBuilder getSelection() {
 
-		if (request.hasSelection()) {
+      if (request.hasSelection()) {
 
-			Selection s = request.getSelection();
+         Selection s = request.getSelection();
 
-			for (Axis axis : s.getAxes()) {
-				if (axis != null && !axis.getColumn().isEmpty()) {
-					sql.column(axis.getColumn(), true);
-				}
-			}
-		}
+         for (Axis axis : s.getAxes()) {
+            if (axis != null && !axis.getColumn().isEmpty()) {
+               sql.column(axis.getColumn(), true);
+            }
+         }
+      }
 
-		return this;
-	}
+      return this;
+   }
 
-	private QueryBuilder getCriteria() {
+   private QueryBuilder getCriteria() {
 
-		if (request.hasCriteria()) {
-			Criteria c = request.getCriteria();
+      if (request.hasCriteria()) {
+         Criteria c = request.getCriteria();
 
-			for (Item item : c.getItems()) {
+         for (Item item : c.getItems()) {
 
-				if (item != null && !item.getWhereClause().isEmpty()) {
-					sql.where(item.getWhereClause());
-				}
-			}
-		}
-		return this;
-	}
+            if (item != null && !item.getWhereClause().isEmpty()) {
+               sql.where(item.getWhereClause());
+            }
+         }
+      }
+      return this;
+   }
 
-	private QueryBuilder getFrom() {
+   private QueryBuilder getFrom() {
 
-		// TODO implement table matrix and join logic
-		sql.from(Const.getTable());
-		return this;
-	}
+      // TODO implement table matrix and join logic
+      sql.from(Const.getTable());
+      return this;
+   }
 
 }

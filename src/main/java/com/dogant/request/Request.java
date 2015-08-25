@@ -5,37 +5,37 @@ import com.dogant.selection.Selection;
 
 public class Request {
 
-	/*
-	 * Main JSON request, basically split into two parts Criteria and Selection
-	 * Criteria is list of items for filtering data Selections are the axes on
-	 * the 2d or 3d charts
-	 */
+   /*
+    * Main JSON request, basically split into two parts Criteria and Selection
+    * Criteria is list of items for filtering data Selections are the axes on
+    * the 2d or 3d charts
+    */
 
-	public Criteria criteria;
-	public Selection selection;
+   public Criteria criteria;
+   public Selection selection;
 
-	public Criteria getCriteria() {
-		return criteria;
-	}
+   public Criteria getCriteria() {
+      return criteria;
+   }
 
-	public void setCriteria(Criteria criteria) {
-		this.criteria = criteria;
-	}
+   public void setCriteria(Criteria criteria) {
+      this.criteria = criteria;
+   }
 
-	public Boolean hasCriteria() {
-		return criteria != null;
-	}
+   public Boolean hasCriteria() {
+      return criteria != null;
+   }
 
-	public Selection getSelection() {
-		return selection;
-	}
+   public Selection getSelection() {
+      return selection;
+   }
 
-	public void setSelection(Selection selection) {
-		this.selection = selection;
-	}
+   public void setSelection(Selection selection) {
+      this.selection = selection;
+   }
 
-	public Boolean hasSelection() {
-		return selection != null;
-	}
+   public Boolean hasSelection() {
+      return selection != null;
+   }
 
 }
