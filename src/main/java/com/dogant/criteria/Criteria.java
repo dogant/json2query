@@ -14,5 +14,4 @@ public class Criteria {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-
 }

@@ -1,43 +1,18 @@
 package com.dogant.selection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Selection {
 
-	private Axis x, y, z;
+	private List<Axis> axes = new ArrayList<Axis>();
 
-	public Axis getX() {
-		return x;
+	public List<Axis> getAxes() {
+		return axes;
 	}
 
-	public void setX(Axis x) {
-		this.x = x;
-	}
-
-	public Axis getY() {
-		return y;
-	}
-
-	public void setY(Axis y) {
-		this.y = y;
-	}
-
-	public Axis getZ() {
-		return z;
-	}
-
-	public void setZ(Axis z) {
-		this.z = z;
-	}
-
-	public Boolean hasX() {
-		return x != null && x.hasName();
-	}
-
-	public Boolean hasY() {
-		return y != null && y.hasName();
-	}
-
-	public Boolean hasZ() {
-		return z != null && z.hasName();
+	public void setAxes(List<Axis> axes) {
+		this.axes = axes;
 	}
 
 }

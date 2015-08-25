@@ -4,7 +4,6 @@ public class Axis {
 
 	private String name;
 	private String type;
-	
 	/*
 	 * Modeled after 2d or 3d chart axis
 	 * Type could be count, avg, max or any other type SQL supports
