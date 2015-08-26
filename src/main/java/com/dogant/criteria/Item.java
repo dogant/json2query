@@ -8,7 +8,7 @@ import com.dogant.util.StringUtil;
 public class Item implements ICriteria {
 
    private final String kGREATER = ">=";
-   private final String kLESSER = ">=";
+   private final String kLESSER = "<=";
    private final String kEQUAL = "=";
    private final String kSEPARATOR = ",";
 
@@ -18,7 +18,7 @@ public class Item implements ICriteria {
 
    /*
     * Expecting an item to have an either Range or List clause. Range is for
-    * continuous data where List is for discrete
+    * continuous data where List is for discrete data.
     * 
     */
    @Override

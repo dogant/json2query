@@ -10,7 +10,7 @@ import com.dogant.util.Const;
 public class QueryBuilder {
 
    SelectBuilder sql = new SelectBuilder();
-   Request request = new Request();
+   Request request;
 
    public QueryBuilder(Request request) {
       this.request = request;
@@ -63,7 +63,14 @@ public class QueryBuilder {
 
    private QueryBuilder getFrom() {
 
-      // TODO implement table matrix and join logic
+      /*
+       * Currently pretending all fields are on the same table.
+       * 
+       * TODO implement table matrix and join logic Create a hashmap to store
+       * table matrix and join points Loop through axes and items and find
+       * fields that are on different tables and join them via join points
+       */
+
       sql.from(Const.getTable());
       return this;
    }

@@ -16,7 +16,8 @@ public class TestQueryBuilder {
             + ",{\"name\":\"gender\",\"tagList\":[\"Male\",\"Female\"]},"
             + "{\"name\":\"credit\",\"range\":{\"min\":0,\"max\":10000}},"
             + "{\"name\":\"status\",\"tagList\":[\"Gold\",\"Silver\",\"Bronze\"]}]},"
-            + "\"selection\":{\"axes\":[{\"name\":\"net_revenue\"}," + "{\"name\":\"age\", \"type\":\"avg\"}]}}";
+            + "\"selection\":{\"axes\":[{\"name\":\"net_revenue\"},"
+            + "{\"name\":\"age\", \"type\":\"avg\"}]}}";
 
       Request r = new Gson().fromJson(json, Request.class);
       QueryBuilder query = new QueryBuilder(r);
@@ -24,8 +25,8 @@ public class TestQueryBuilder {
       String sql = query.getSQL();
 
       String expected = "select net_revenue, avg(age) from members where age>=10 "
-            + "and age>=100 and gender in ('Male','Female') "
-            + "and credit>=0 and credit>=10000 and status in ('Gold','Silver','Bronze') "
+            + "and age<=100 and gender in ('Male','Female') "
+            + "and credit>=0 and credit<=10000 and status in ('Gold','Silver','Bronze') "
             + "group by net_revenue, avg(age)";
       Assert.assertEquals(sql, expected);
    }
@@ -33,7 +34,8 @@ public class TestQueryBuilder {
    @Test
    public void testNoCriteria() {
 
-      String json = "{\"selection\":{\"axes\":[{\"name\":\"net_revenue\"}," + "{\"name\":\"age\", \"type\":\"avg\"}]}}";
+      String json = "{\"selection\":{\"axes\":[{\"name\":\"net_revenue\"},"
+            + "{\"name\":\"age\", \"type\":\"avg\"}]}}";
       Request r = new Gson().fromJson(json, Request.class);
       QueryBuilder query = new QueryBuilder(r);
 
@@ -55,9 +57,9 @@ public class TestQueryBuilder {
       QueryBuilder query = new QueryBuilder(r);
 
       String sql = query.getSQL();
-      String expected = "select * from members where age>=10 and age>=100 "
+      String expected = "select * from members where age>=10 and age<=100 "
             + "and gender in ('Male','Female') and credit>=0 "
-            + "and credit>=10000 and status in ('Gold','Silver','Bronze')";
+            + "and credit<=10000 and status in ('Gold','Silver','Bronze')";
 
       Assert.assertEquals(sql, expected);
 
