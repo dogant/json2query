@@ -2,7 +2,7 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.dogant</groupId>
-   <artifactId>js</artifactId>
+   <artifactId>json2query</artifactId>
    <packaging>jar</packaging>
    <version>1.0-SNAPSHOT</version>
    <name>json2query</name>
@@ -34,27 +34,15 @@
    </dependencies>
 
    <build>
-      <finalName>json2query</finalName>
+      <sourceDirectory>src</sourceDirectory>
       <plugins>
          <plugin>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
             <configuration>
                <source>1.7</source>
                <target>1.7</target>
             </configuration>
-         </plugin>
-         <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-               <includes>
-                  <include>**/Test*.java</include>
-               </includes>
-            </configuration>
-         </plugin>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.6</version>
          </plugin>
       </plugins>
    </build>

@@ -12,7 +12,7 @@ public class Axis {
 
    public String getColumn() {
 
-      return hasType() ? type + "(" + name + ")" : name;
+      return hasType() && hasName() ? type + "(" + name + ")" : name;
 
    }
 
